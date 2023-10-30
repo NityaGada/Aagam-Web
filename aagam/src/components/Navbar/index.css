@@ -1,0 +1,73 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .brand p {
+    font-size: 24px;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.open {
+    display: block;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px;
+  }
+  
+  .actions {
+    display: flex;
+  }
+  
+  .account,
+  .contact {
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .menu.open {
+      display: block;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+    }
+  
+    .actions {
+      display: none;
+    }
+  }
+  
+  
