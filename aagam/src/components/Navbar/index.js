@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Contact from "./contact.png";
+import User from "./user.png";
+import Menu from "./menu.png";
 import "./index.css";
 
 export default function Navbar(props) {
@@ -8,12 +11,17 @@ export default function Navbar(props) {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="navbar">
-      <div className="brand">
-        <p>AAGAM</p>
+      <div className="menu-toggle" onClick={toggleMenu}>
+      <img src={Menu} alt="menubutton" /> Menu
+        <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
       </div>
-      <div className={`menu ${menuOpen ? "open" : ""}`}>
+      <div className={`menu ${menuOpen ? "open" : ""}`} onMouseLeave={closeMenu}>
         <ul>
           <li>Nawabi</li>
           <li>Jodpuri</li>
@@ -22,13 +30,19 @@ export default function Navbar(props) {
           <li>Shirt</li>
         </ul>
       </div>
-      <div className="actions">
-        <button className="account">Account</button>
-        <button className="contact">Contact Us</button>
+      <div className="brand">
+        <p>AAGAM</p>
       </div>
-      <button className="menu-toggle" onClick={toggleMenu}>
-        <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
-      </button>
+      <div className="actions">
+        <button className="account" style={{ backgroundColor: "transparent", border: "none" }}>
+          <img src={User} alt="User" />
+          <p>Account</p>
+        </button>
+        <button className="account" style={{ backgroundColor: "transparent", border: "none" }}>
+        <img src={Contact} alt="Contact" />
+        <p>Contact Us</p>
+        </button>
+      </div>
     </div>
   );
 }
