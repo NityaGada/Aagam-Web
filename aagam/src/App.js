@@ -15,6 +15,7 @@ function App() {
           <Route path="/customize/:title" element={<pages.Customize />}></Route>
           <Route path="/customize/:title/:subtype" element={<pages.Customize />}></Route>
         </Routes>
+        <components.Footer />
       </BrowserRouter>
     </div>
   );

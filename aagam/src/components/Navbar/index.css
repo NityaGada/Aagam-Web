@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color: #4F6F52;
   position: relative;
 }
 
@@ -17,7 +17,7 @@
   position: absolute;
   top: 100%; /* Position it just below the "Menu" button */
   left: 0;
-  background-color: #333;
+  background-color: white;
   width: 100%;
   transition: 0.3s;
 }
@@ -46,7 +46,7 @@
 .contact {
   margin-right: 10px;
   background-color: #007bff;
-  color: white;
+  color: black;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
@@ -55,7 +55,7 @@
 .menu-toggle {
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 20px;
   cursor: pointer;
 }
