@@ -10,6 +10,8 @@
 
 .menu-toggle {
   cursor: pointer;
+  display: flex; /* Add flex display to center-align items */
+  align-items: center;
 }
 
 .menu {
@@ -56,14 +58,28 @@
   background: none;
   border: none;
   color: black;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 
-.brand{
+.menu{
+  color: #000;
+  font-family: Playfair Display;
   font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-img{
-  width: 30px;
+.brand{
+  color: #739072;
+  font-family: Montserrat;
+  font-size: 62px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.actions .account img{
+  width: 50px;
 }

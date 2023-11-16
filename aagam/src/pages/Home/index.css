@@ -56,25 +56,6 @@
   padding-bottom: 5%;
 }
 
-.card {
-  flex: 1;
-  border: 1px solid #ccc;
-  margin: 10px;
-  padding: 10px;
-  height: 400px;
-  text-align: center;
-  border-radius: 5%;
-}
-
-.card-header {
-  font-weight: bold;
-}
-
-.card-content {
-  text-align: center;
-  margin-top: 10px;
-}
-
 .b3{
   width: 20%;
   font-size: 20px;
