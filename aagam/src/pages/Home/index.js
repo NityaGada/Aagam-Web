@@ -1,9 +1,7 @@
+// import { Link } from "react-router-dom";
 import "./index.css";
-
 import { useNavigate } from "react-router-dom";
-
 import Homecard from "../../components/Homecard";
-
 import Model from "../../assets/model copy.png";
 import Contact from "../../assets/contact.png";
 import wa from "../../assets/whatsapp.png";

@@ -25,4 +25,4 @@ combined_image = np.zeros_like(image)
 combined_image[y:y + h, x:x + w] = face_roi
 
 # Save the combined image
-cv2.imwrite('face_2.png', combined_image)
+cv2.imwrite('face_3.png', combined_image)
