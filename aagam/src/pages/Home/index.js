@@ -1,22 +1,7 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+// import { Link } from "react-router-dom";
 import "./index.css";
-import Model from "./model.png";
-import Contact from "./contact.png";
-import wa from "./whatsapp.png";
-import insta from "./insta.png";
-import gmail from "./gmail.png";
-import fb from "./fb.png";
-import Login from './Login';
-=======
-import "./index.css";
-
 import { useNavigate } from "react-router-dom";
->>>>>>> 0180cf5fb7bc9fb2f5ff9c72063886632a4f1995
-
 import Homecard from "../../components/Homecard";
-
 import Model from "../../assets/model copy.png";
 import Contact from "../../assets/contact.png";
 import wa from "../../assets/whatsapp.png";
@@ -27,28 +12,6 @@ import NawabiModel from "../../assets/model.png";
 import bodypart from "../../assets/face_and_hands.png";
 
 export default function Home() {
-<<<<<<< HEAD
-  const [showLoginModal, setShowLoginModal] = useState(false);
-
-
-  useEffect(() => {
-    // Show the login modal when the component mounts
-    setShowLoginModal(true);
-  }, []);
-
-  const handleCloseLoginModal = () => {
-    // Close the login modal
-    setShowLoginModal(false);
-  };
-
-
-  return (
-    <>
-
-      <Login show={showLoginModal} handleClose={handleCloseLoginModal} />
-      <button>
-        <Link to="/customize/Nawabi">View Nawabi</Link>
-=======
   const navigate = useNavigate();
   return (
     <>
@@ -63,7 +26,6 @@ export default function Home() {
         });
       }}>
         View Nawabi
->>>>>>> 0180cf5fb7bc9fb2f5ff9c72063886632a4f1995
       </button>
       <div className="content">
         <div className="text">
