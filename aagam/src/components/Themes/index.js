@@ -12,7 +12,7 @@ export default function Theme(props) {
         <div className="theme-container">
             {ThemeItems.map((theme, index) => (
                 <button
-                    key={index} className="subtype-box"
+                    key={index} className="theme-box"
                     onClick={() => {
                         navigate(`/customize/${title}${subtype ? `/${subtype}` : ''}/${theme.name}`, {
                             state: {
