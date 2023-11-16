@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load the image
-image = cv2.imread('model2.png')
+image = cv2.imread('model.png')
 
 # Load the face detection model
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -32,4 +32,4 @@ combined_image[y:y + h, x:x + w] = face_roi
 combined_image[hands_y1:hands_y2, hands_x1:hands_x2] = hands_roi
 
 # Save the combined image
-cv2.imwrite('face_and_hands_2.png', combined_image)
+cv2.imwrite('face_and_hands_3.png', combined_image)

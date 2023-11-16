@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./index.css";
 import Model from "./model.png";
 import Contact from "./contact.png";
@@ -7,7 +7,7 @@ import wa from "./whatsapp.png";
 import insta from "./insta.png";
 import gmail from "./gmail.png";
 import fb from "./fb.png";
-
+import Login from './Login';
 
 
 function Card({ content, to }) {
@@ -20,9 +20,24 @@ function Card({ content, to }) {
 
 
 export default function Home() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+
+  useEffect(() => {
+    // Show the login modal when the component mounts
+    setShowLoginModal(true);
+  }, []);
+
+  const handleCloseLoginModal = () => {
+    // Close the login modal
+    setShowLoginModal(false);
+  };
+
 
   return (
     <>
+
+      <Login show={showLoginModal} handleClose={handleCloseLoginModal} />
       <button>
         <Link to="/customize/Nawabi">View Nawabi</Link>
       </button>
