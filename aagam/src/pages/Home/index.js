@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import "./index.css";
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Homecard from "../../components/Homecard";
 import Model from "../../assets/model copy.png";
@@ -10,9 +11,15 @@ import gmail from "../../assets/gmail.png";
 import fb from "../../assets/fb.png";
 import NawabiModel from "../../assets/model.png";
 import bodypart from "../../assets/face_and_hands.png";
+import Login from '../../components/Login';
 
 export default function Home() {
   const navigate = useNavigate();
+  const [isLoginVisible, setIsLoginVisible] = useState(true);
+
+  const handleCloseLogin = () => {
+    setIsLoginVisible(false);
+  };
   return (
     <>
       <button onClick={() => {
@@ -93,6 +100,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {isLoginVisible && <Login onClose={handleCloseLogin} />}
       </div>
 
 

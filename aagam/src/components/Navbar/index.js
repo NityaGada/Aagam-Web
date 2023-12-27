@@ -1,6 +1,7 @@
 import "./index.css";
 
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 import User from "../../assets/user.png";
 import Menu from "../../assets/menu.png";
@@ -39,6 +40,7 @@ export default function Navbar(props) {
         <p>AAGAM</p>
       </div>
       <div className="actions">
+      <Link to="/login">
         <button
           className="account"
           style={{ backgroundColor: "transparent", border: "none" }}
@@ -46,6 +48,7 @@ export default function Navbar(props) {
           <img src={User} alt="User" />
           <p>Account</p>
         </button>
+      </Link>
       </div>
     </div>
   );
