@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css'; // Import your CSS file
 
-const Login = ({ onClose }) => {
+export default function Login() {
   const [isSignup, setIsSignup] = useState(false);
 
   const toggleSignMode = () => {
@@ -9,11 +9,7 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <div className="overlay">
     <div className={`cont ${isSignup ? 's--signup' : ''}`}>
-      <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
       <div className="form sign-in">
         <h2>Welcome</h2>
         <label>
@@ -62,8 +58,5 @@ const Login = ({ onClose }) => {
         </div>
       </div>
     </div>
-    </div>
   );
 };
-
-export default Login
