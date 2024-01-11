@@ -8,7 +8,7 @@ const AdminPage = () => {
   const [tiles, setTiles] = useState([]);
   const [showTileForm, setShowTileForm] = useState(false);
 
-  const Tile = ({ id, title, image, quantity, onExpand, onDelete }) => {
+  const Tile = ({ id, title, image, length, onExpand, onDelete }) => {
     const [expanded, setExpanded] = useState(false);
 
     const handleExpand = () => {
@@ -27,7 +27,7 @@ const AdminPage = () => {
         <div className="tile">
           <img src={image} alt={title} onClick={handleExpand} />
           <h3>{title}</h3>
-          <p>Quantity: {quantity}</p>
+          <p>Length Available: {length}</p>
           <div className="actions">
             <img
               src={expand}
@@ -51,7 +51,7 @@ const AdminPage = () => {
               </button>
               <img src={image} alt={title} />
               <h3>{title}</h3>
-              <p>Quantity: {quantity}</p>
+              <p>Length Available: {length}</p>
             </div>
           )}
         </div>
@@ -61,7 +61,7 @@ const AdminPage = () => {
   const TileForm = ({ onAddTile }) => {
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
-    const [quantity, setQuantity] = useState(0);
+    const [length, setLength] = useState(0);
     const [file, setFile] = useState(null);
 
     const handleFileChange = (e) => {
@@ -79,13 +79,13 @@ const AdminPage = () => {
 
       const reader = new FileReader();
       reader.onloadend = () => {
-        onAddTile({ title, image: reader.result, quantity });
+        onAddTile({ title, image: reader.result, length });
       };
       reader.readAsDataURL(file);
 
       setTitle('');
       setImage('');
-      setQuantity(0);
+      setLength(0);
       setFile(null);
       setShowTileForm(false); // Hide the form after submission
     };
@@ -93,20 +93,30 @@ const AdminPage = () => {
     return (
       <div>
         {showTileForm ? (
-          <form onSubmit={handleSubmit}>
-            <label>
-              Title:
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-            </label>
-            <label>
-              Image:
-              <input type="file" accept="image/*" onChange={handleFileChange} />
-            </label>
-            <label>
-              Quantity:
-              <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-            </label>
-            <button type="submit" style={{ color: 'black' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'row', maxWidth: '600px', margin: 'auto' }}>
+            <div style={{ marginRight: '20px', flex: '1' }}>
+              <label style={{ display: 'block', marginBottom: '10px' }}>
+                Title:
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={{ marginLeft: '5px', width: '100%' }} />
+              </label>
+              
+              <label style={{ display: 'block' }}>
+                Length:
+                <input type="number" value={length} onChange={(e) => setLength(e.target.value)} style={{ marginLeft: '5px', width: '100%' }} />
+              </label>
+            </div>
+
+            <div style={{ flex: '1' }}>
+              <label style={{ display: 'block', marginBottom: '10px' }}>
+                Image:
+                <div style={{ border: '2px dashed #ccc', padding: '10px', textAlign: 'center' }}>
+                  <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+                  <p style={{ cursor: 'pointer' }} onClick={() => document.querySelector('input[type="file"]').click()}>Drag & Drop or Click to Upload</p>
+                </div>
+              </label>
+            </div>
+
+            <button type="submit" style={{ color: 'black', alignSelf: 'center' }}>
               Add Design
             </button>
           </form>
@@ -143,7 +153,7 @@ const AdminPage = () => {
             id={index}
             title={tile.title}
             image={tile.image}
-            quantity={tile.quantity}
+            length={tile.length}
             onExpand={handleExpandTile}
             onDelete={handleDeleteTile}
           />
