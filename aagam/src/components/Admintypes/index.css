@@ -1,0 +1,79 @@
+.adminbox {
+    display: flex;
+    flex-flow: column;
+    width: 42.5%;
+    border: 1px solid black;
+    margin: 2.5%;
+    box-sizing: border-box;
+    min-height: 350px;
+}
+
+.type {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.type button {
+    font-size: 1.5em;
+}
+
+.typeimage {
+    display: flex;
+    flex: 3;
+    align-items: center;
+    justify-content: center;
+}
+
+.typeimage img {
+    height: 320px;
+}
+
+.options button {
+    font-size: 1.2em;
+    width: 5em;
+    cursor: pointer;
+}
+
+.modal {
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+.modal .formdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modal .formdiv input {
+    width: 40%;
+    margin: 1% 5%;
+    font-size: 1.3em;
+}
+
+.modal .formdiv input[type="file"]{
+    font-size: 1em;
+}
+
+.modal .formdiv label {
+    width: 45%;
+    margin: 1% 2.5%;
+}
+
+.modal .modalbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.modal .modalbuttons button,
+.modal .modalbuttons input[type="submit"] {
+    font-size: 1em;
+    width: 20%;
+    cursor: pointer;
+    margin: 1%;
+}

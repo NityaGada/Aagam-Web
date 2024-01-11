@@ -27,24 +27,28 @@ export default function Main(props) {
                 ctx.globalCompositeOperation = "multiply";
 
                 // draw model image (shirt) on top
-                ctx.drawImage(img1, 0, 0, img1.width * 0.5, img1.height * 0.5);
+                // Calculate the x-coordinate to center the image
+            const x = (canvas.width - img1.width * 0.5) / 2;
 
-                // change composition mode
-                ctx.globalCompositeOperation = "destination-in";
+            // draw model image (shirt) centered horizontally
+            ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
 
-                // draw to cut out model image (shirt)
-                ctx.drawImage(img1, 0, 0, img1.width * 0.5, img1.height * 0.5);
+            // change composition mode
+            ctx.globalCompositeOperation = "destination-in";
 
-                // Reset composition mode to default
-                ctx.globalCompositeOperation = "source-over";
+            // draw to cut out model image (shirt)
+            ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
 
-                // draw the new image on top
-                ctx.drawImage(img3, 3, 2, img3.width * 0.5, img3.height * 0.5); // Adjust position and size as needed
-            };
+            // Reset composition mode to default
+            ctx.globalCompositeOperation = "source-over";
 
-            img1.onload = img2.onload = img3.onload = function () {
-                if (!--cnt) go();
-            };
+            // draw the new image on top
+            ctx.drawImage(img3, x + 3, 2, img3.width * 0.5, img3.height * 0.5); // Adjust position and size as needed
+        };
+
+        img1.onload = img2.onload = img3.onload = function () {
+            if (!--cnt) go();
+        };
 
             img1.src = props.img1; // Shirt
             img2.src = props.img2; // Pattern
@@ -62,7 +66,7 @@ export default function Main(props) {
                     alt="Nawabi"
                 />
             ) : (
-                <img src={props.ogimg} alt="OgImage" style={{width: 500+'px', height: 500+'px', objectFit: 'contain'}}/>
+                <img src={props.ogimg} alt="OgImage" style={{width: 500+'px', height: 500+'px', objectFit: 'contain', margin: '0 auto'}}/>
             )}
         </>
     );

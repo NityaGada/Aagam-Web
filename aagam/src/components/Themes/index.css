@@ -1,0 +1,24 @@
+.theme-container {
+    display: flex;
+    gap: 2.5%;
+    width: 75%;
+    border: 1px solid black;
+    border-radius: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.theme-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: 0.5px solid black;
+    cursor: pointer;
+    width: 10%;
+    margin: 0.5em;
+}
+
+.theme-box img {
+    width: 100%;
+}

@@ -5,7 +5,7 @@ import { ThemeItems } from "../MenuItems";
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function Theme(props) {
-    const { title, subtype } = useParams();
+    const { title} = useParams();
     const navigate = useNavigate();
     console.log(props);
     return (
@@ -14,7 +14,7 @@ export default function Theme(props) {
                 <button
                     key={index} className="theme-box"
                     onClick={() => {
-                        navigate(`/customize/${title}${subtype ? `/${subtype}` : ''}/${theme.name}`, {
+                        navigate(`/customize/${title}/${theme.name}`, {
                             state: {
                                 image1: props.img1,
                                 image2: theme.source,

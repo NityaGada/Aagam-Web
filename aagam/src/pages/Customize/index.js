@@ -6,23 +6,23 @@ import Theme from "../../components/Themes";
 
 export default function Customize() {
     const { state } = useLocation();
-    
+
     var image1 = state.image1;
     var image2 = state.image2;
     var ogimage = state.ogimage;
     var bodypart = state.handsface;
-
+    console.log("Main called:-", image1, image2, ogimage, bodypart);
     return <>
-        <div style={{ width: '100%', display: 'flex', marginTop: 1+'em' }}>
+        <div style={{ width: '100%', display: 'flex', marginTop: 1 + 'em' }}>
             <div style={{ flex: 4 }}>
-                <Main img1 = {image1} img2 = {image2} ogimg = {ogimage} handsface = {bodypart}/>
+                <Main img1={image1} img2={image2} ogimg={ogimage} handsface={bodypart} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: 1 + 'em' }}>
                 <Subtypes />
             </div>
         </div>
-        <div>
-            <Theme img1 = {image1} img2 = {image2} ogimg = {ogimage} handsface = {bodypart}/>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '1em 0' }}>
+            <Theme img1={image1} img2={image2} ogimg={ogimage} handsface={bodypart} />
         </div>
     </>
 }

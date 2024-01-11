@@ -1,6 +1,6 @@
 import Model from "../../assets/model copy.png";
 import Red from "../../assets/red_bg.png";
-import Blue from "../../assets/blue_bg.png";  
+import Blue from "../../assets/trial2.jpg";  
 
 export const MenuItems = [
     {

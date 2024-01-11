@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<pages.Home />}></Route>
           <Route path="/customize/:title" element={<pages.Customize />}></Route>
-          <Route path="/customize/:title/:subtype" element={<pages.Customize />}></Route>
-          <Route path="/customize/:title/:subtype/:pattern" element={<pages.Customize />}></Route>
+          <Route path="/customize/:title/:pattern" element={<pages.Customize />}></Route>
+          <Route path="/admin" element={<pages.Admin />}></Route>
         </Routes>
         <components.Footer />
       </BrowserRouter>

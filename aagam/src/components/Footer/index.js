@@ -1,5 +1,5 @@
 import React from "react";
-import CopyRight from "./copyright.png";
+import CopyRight from "../../assets/copyright.png";
 
 export default function Navbar(props) {
  
