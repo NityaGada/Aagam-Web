@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import "./index.css";
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Homecard from "../../components/Homecard";
 import Model from "../../assets/model copy.png";
@@ -10,9 +11,11 @@ import gmail from "../../assets/gmail.png";
 import fb from "../../assets/fb.png";
 import NawabiModel from "../../assets/model.png";
 import bodypart from "../../assets/face_and_hands.png";
+import { Helmet } from 'react-helmet';
 
 export default function Home() {
   const navigate = useNavigate();
+
   return (
     <>
       <button onClick={() => {
@@ -28,6 +31,9 @@ export default function Home() {
         View Nawabi
       </button>
       <div className="content">
+      <Helmet>
+      <meta name="keywords" content="Jodhpuri Near Me, Wedding Store Near Me, Menswear Store, Jodhpuri Suit Store, Jodhpuri Coat Store, Mens Wedding Wear Store, Ethnic Shoes, Wedding Shoes, Handmade Shoes, Designer Shoes, Handcrafted Shoes, Suiting, Shirting, Traditional Wear, Kurta, Designer Kurta, Bandhgala, Achkan, Tie, Bowtie, Cufflinks, Lapel Pin, Broach, Readymade Wedding Wear Clothes, Ethnic Clothes" />
+      </Helmet>
         <div className="text">
           <h2 style={{ color: "black", }}>TRY OUT OUR <br></br> PRODUCTS LIVE</h2>
           Get a look at the finished products as our software drapes your selected material on a model

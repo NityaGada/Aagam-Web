@@ -1,9 +1,13 @@
 import "./index.css";
 
 import { useState } from "react";
-
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import User from "../../assets/user.png";
 import Menu from "../../assets/menu.png";
+import Nav from "../../assets/nav.png";
+import NawabiModel from "../../assets/model.png";
+import bodypart from "../../assets/face_and_hands.png";
 
 export default function Navbar(props) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +19,8 @@ export default function Navbar(props) {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="navbar">
@@ -28,7 +34,22 @@ export default function Navbar(props) {
         onMouseLeave={closeMenu}
       >
         <ul>
-          <li>Nawabi</li>
+          <li>
+          <button
+            onClick={() => {
+              navigate("/customize/Nawabi", {
+                state: {
+                  image1: NawabiModel,
+                  image2: "",
+                  ogimage: NawabiModel,
+                  handsface: bodypart,
+                },
+              });
+            }}
+          >
+           Nawabi
+          </button>
+          </li>
           <li>Jodpuri</li>
           <li>Kurta</li>
           <li>Nehru Jacket</li>
@@ -36,9 +57,10 @@ export default function Navbar(props) {
         </ul>
       </div>
       <div className="brand">
-        <p>AAGAM</p>
+        <img src={Nav} alt="nav" width={"33%"}></img>
       </div>
       <div className="actions">
+      <Link to="/login">
         <button
           className="account"
           style={{ backgroundColor: "transparent", border: "none" }}
@@ -46,6 +68,7 @@ export default function Navbar(props) {
           <img src={User} alt="User" />
           <p>Account</p>
         </button>
+      </Link>
       </div>
     </div>
   );
