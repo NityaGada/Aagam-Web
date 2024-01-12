@@ -26,7 +26,7 @@ export default function Navbar(props) {
     <div className="navbar">
       <div className="menu-toggle" onClick={toggleMenu}>
         <img src={Menu} alt="menubutton" />
-        Menu
+        <div className="menuu">menu</div>
         {/* <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i> */}
       </div>
       <div

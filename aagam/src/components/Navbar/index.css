@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -22,6 +24,12 @@
   background-color: white;
   width: 100%;
   transition: 0.3s;
+
+}
+
+.menuu{
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
 .menu-toggle:hover + .menu,

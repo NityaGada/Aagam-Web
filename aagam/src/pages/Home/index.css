@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 *{
   font-family: 'Lato';  
+  letter-spacing: 1.5px;
 }
 
 .content {
@@ -38,14 +39,25 @@
 
 .buttons button {
   margin-right: 10px;
-  width: 30%;
-  height: 40px;
-  border-radius: 14px;
-  border-color: #4F6F52;
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: none;
 }
 
 .b1{
+  border: 3px solid;
   background-color: #ECE3CE;
+  border-color: #ECE3CF;
+  margin-bottom: 12px;
+  box-shadow: none;
+}
+
+.b2{
+  border: 3px solid;
+  border-color: #ECE3CE;
+  background-color: white;
+  margin-bottom: 75px;
 }
 
 .cards-container {
@@ -62,6 +74,11 @@
   border-radius: 14px;
   padding-top: 1%;
   padding-bottom: 1%;
+  border-color: black;
+  border: 3px solid;
+  font-weight: 500;
+  background-color: white;
+  margin-right: 150px;
 }
 
 .location{

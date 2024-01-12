@@ -35,11 +35,13 @@ export default function Home() {
       <meta name="keywords" content="Jodhpuri Near Me, Wedding Store Near Me, Menswear Store, Jodhpuri Suit Store, Jodhpuri Coat Store, Mens Wedding Wear Store, Ethnic Shoes, Wedding Shoes, Handmade Shoes, Designer Shoes, Handcrafted Shoes, Suiting, Shirting, Traditional Wear, Kurta, Designer Kurta, Bandhgala, Achkan, Tie, Bowtie, Cufflinks, Lapel Pin, Broach, Readymade Wedding Wear Clothes, Ethnic Clothes" />
       </Helmet>
         <div className="text">
-          <h2 style={{ color: "black", }}>TRY OUT OUR <br></br> PRODUCTS LIVE</h2>
+          <h2 style={{ color: "black", fontSize: "50px"}}>TRY OUT OUR <br></br> PRODUCTS LIVE</h2>
+          <div style={{ letterSpacing: "0.111px", paddingTop:"15px", paddingBottom:"15px"}}>
           Get a look at the finished products as our software drapes your selected material on a model
+          </div>
           <div className="buttons">
-            <button className="b1">Try Now</button> <br></br>
-            <button>Know More</button>
+            <button className="b1">TRY NOW</button> <br></br>
+            <button className="b2">KNOW MORE</button>
           </div>
         </div>
         <div className="image">
@@ -48,7 +50,7 @@ export default function Home() {
       </div>
 
       <div className="collection">
-        <h2>OUR COLLECTIONS</h2>
+        <h2 style={{ fontSize: "50px", marginLeft:"40px", marginTop:"20px", marginBottom:"30px"}}>OUR COLLECTIONS</h2>
 
         <div className="cards-container">
           <Homecard
