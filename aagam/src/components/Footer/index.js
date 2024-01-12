@@ -1,17 +1,11 @@
 import React from "react";
-<<<<<<< HEAD
 import CopyRight from "../../assets/copyright.png";
-
-export default function Navbar(props) {
- 
-=======
 import Contact from "../../assets/contact.png"; // Import your contact icons here
 import wa from "../../assets/whatsapp.png";
 import insta from "../../assets/insta.png";
 import gmail from "../../assets/gmail.png";
 import fb from "../../assets/fb.png";
 import logo from "../../assets/logo.png";
->>>>>>> b77052197326612a766a12b36b9939c4c5f0f630
 
 export default function Footer(props) {
   return (
