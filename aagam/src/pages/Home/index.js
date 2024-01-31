@@ -9,8 +9,8 @@ import wa from "../../assets/whatsapp.png";
 import insta from "../../assets/insta.png";
 import gmail from "../../assets/gmail.png";
 import fb from "../../assets/fb.png";
-import NawabiModel from "../../assets/model.png";
-import bodypart from "../../assets/face_and_hands.png";
+// import NawabiModel from "../../assets/model.png";
+// import bodypart from "../../assets/face_and_hands.png";
 import { Helmet } from 'react-helmet';
 
 export default function Home() {
@@ -19,14 +19,7 @@ export default function Home() {
   return (
     <>
       <button onClick={() => {
-        navigate("/customize/Nawabi", {
-          state: {
-            image1: NawabiModel,
-            image2: "",
-            ogimage: NawabiModel,
-            handsface: bodypart,
-          },
-        });
+        navigate("/customize/Nawabi");
       }}>
         View Nawabi
       </button>

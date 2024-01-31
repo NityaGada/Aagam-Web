@@ -50,9 +50,9 @@ export default function Main(props) {
             if (!--cnt) go();
         };
 
-            img1.src = props.img1; // Shirt
-            img2.src = props.img2; // Pattern
-            img3.src = props.handsface; // New image
+            img1.src = `data:image/png;base64,${props.img1}`; // Shirt
+            img2.src = `data:image/png;base64,${props.img2}`; // Pattern
+            img3.src = `data:image/png;base64,${props.handsface}`; // New image
         }
     }, [props.img1, props.img2, props.handsface]);
 
@@ -66,7 +66,7 @@ export default function Main(props) {
                     alt="Nawabi"
                 />
             ) : (
-                <img src={props.ogimg} alt="OgImage" style={{width: 500+'px', height: 500+'px', objectFit: 'contain', margin: '0 auto'}}/>
+                <img src={`data:image/png;base64,${props.ogimage}`} alt="OgImage" style={{width: 500+'px', height: 500+'px', objectFit: 'contain', margin: '0 auto'}}/>
             )}
         </>
     );

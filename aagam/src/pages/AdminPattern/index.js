@@ -1,166 +1,148 @@
-// AdminPage.js
-import React, { useState } from 'react';
 import "./index.css";
-import expand from "../../assets/expand.png";
-import del from "../../assets/delete.png";
 
-const AdminPage = () => {
-  const [tiles, setTiles] = useState([]);
-  const [showTileForm, setShowTileForm] = useState(false);
+import { useRef, useState, useEffect } from 'react';
 
-  const Tile = ({ id, title, image, length, onExpand, onDelete }) => {
-    const [expanded, setExpanded] = useState(false);
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-    const handleExpand = () => {
-      setExpanded(!expanded);
-      onExpand(id);
-    };
+import Popup from 'reactjs-popup';
 
-    const handleDelete = () => {
-      onDelete(id);
-    };
-    const handleCloseOverlay = () => {
-        setExpanded(false);
-      };
-  
-      return (
-        <div className="tile">
-          <img src={image} alt={title} onClick={handleExpand} />
-          <h3>{title}</h3>
-          <p>Length Available: {length}</p>
-          <div className="actions">
-            <img
-              src={expand}
-              alt="Expand"
-              onClick={handleExpand}
-              style={{ width: "10%", height:"10%" }}
-              className="action-icon"
-            />
-            <img
-              src={del}
-              alt="Delete"
-              onClick={handleDelete}
-              style={{ width: "10%", height:"10%" }}
-              className="action-icon"
-            />
-          </div>
-          {expanded && (
-            <div className="overlay">
-              <button className="close-button" onClick={handleCloseOverlay}>
-                Close
-              </button>
-              <img src={image} alt={title} />
-              <h3>{title}</h3>
-              <p>Length Available: {length}</p>
-            </div>
-          )}
-        </div>
-      );
-    };
+export default function AdminPage() {
+    const [recieveddata, setrecieveddata] = useState([]);
+    const navigate = useNavigate();
 
-  const TileForm = ({ onAddTile }) => {
-    const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
-    const [length, setLength] = useState(0);
-    const [file, setFile] = useState(null);
+    let name = useRef();
+    let pattern_image = useRef();
+    let length = useRef();
 
-    const handleFileChange = (e) => {
-      const selectedFile = e.target.files[0];
-      setFile(selectedFile);
-    };
+    useEffect(() => {
+        axios.post('http://localhost:4000/adminpattern/')
+            .then(response => {
+                setrecieveddata(response.data);
+                console.log("Response data: ", response.data);
+            })
+            .catch((error) => {
+            });
+    }, []);
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
+    const handleImageChange = (e, imageRef) => {
+        const file = e.target.files[0];
 
-      if (!file) {
-        alert('Please select an image file');
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        onAddTile({ title, image: reader.result, length });
-      };
-      reader.readAsDataURL(file);
-
-      setTitle('');
-      setImage('');
-      setLength(0);
-      setFile(null);
-      setShowTileForm(false); // Hide the form after submission
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const arrayBuffer = reader.result;
+                const uint8Array = new Uint8Array(arrayBuffer);
+                imageRef.current = uint8Array;
+            };
+            reader.readAsArrayBuffer(file);
+        }
     };
 
     return (
-      <div>
-        {showTileForm ? (
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'row', maxWidth: '600px', margin: 'auto' }}>
-            <div style={{ marginRight: '20px', flex: '1' }}>
-              <label style={{ display: 'block', marginBottom: '10px' }}>
-                Title:
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={{ marginLeft: '5px', width: '100%' }} />
-              </label>
-              
-              <label style={{ display: 'block' }}>
-                Length:
-                <input type="number" value={length} onChange={(e) => setLength(e.target.value)} style={{ marginLeft: '5px', width: '100%' }} />
-              </label>
+        <>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 5 + '%' }}>
+                <Popup trigger=
+                    {<button style={{ fontSize: 1.2 + 'em', width: 15 + '%', cursor: 'pointer' }}> Add Pattern </button>}
+                    modal nested>
+                    {
+                        close => (
+                            <div className='modal'>
+                                <div className="patternformdiv">
+                                    <input type="text" ref={name} placeholder="Pattern Name" />
+                                </div>
+                                <div className="patternformdiv">
+                                    <label>
+                                        Pattern Image:
+                                        <input type="file" onChange={(e) => handleImageChange(e, pattern_image)} />
+                                    </label>
+                                </div>
+                                <div className="patternformdiv">
+                                    <input type="text" ref={length} placeholder="Pattern Length" />
+                                </div>
+                                <div className="modalbuttons">
+                                    <button onClick=
+                                        {() => close()}>
+                                        Close
+                                    </button>
+                                    <input type="submit" onClick={() => {
+                                        axios({
+                                            method: 'post',
+                                            url: 'http://localhost:4000/adminpattern/add',
+                                            data: {
+                                                name: name.current.value,
+                                                pattern_image: Array.from(pattern_image.current),
+                                                length: length.current.value
+                                            }
+                                        })
+                                            .then(response => {
+                                                if (response.status === 200) {
+                                                    window.location.reload();
+                                                }
+                                            })
+                                            .catch((error) => {
+                                                alert("Error: " + error.response.data.message);
+                                            })
+                                    }} name="add" value="Add" />
+                                </div>
+                            </div>
+                        )
+                    }
+                </Popup>
+                <button onClick={() => {
+                    navigate("/admin")
+                }} style={{ fontSize: 1.2 + 'em', width: 15 + '%', cursor: 'pointer' }}> Cloth Types </button>
+            </div >
+            <div style={{ display: 'flex', flexFlow: 'row', width: 100 + '%', flexWrap: 'wrap', gap: 2.5 + '%' }}>
+                {recieveddata.map((item, index) => (
+                    <div className="adminpatternbox">
+                        <div className="patternimage">
+                            <img src={`data:image/png;base64,${item.pattern_image}`} alt='type_image' />
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <div>{item.name}</div>
+                            <div>Length: {item.length}</div>
+                        </div>
+                        <div className="patternoptions" style={{ display: 'flex', justifyContent: 'space-between', gap: '1.5em' }}>
+                            <Popup trigger=
+                                {<button>Expand</button>}
+                                modal nested>
+                                {
+                                    close => (
+                                        <div className='expandedmodal'>
+                                            <div className="expandedmodalbuttons">
+                                                <button onClick=
+                                                    {() => close()}>
+                                                    X
+                                                </button>
+                                            </div>
+                                            <div className="expandedimage">
+                                                <img src={`data:image/png;base64,${item.pattern_image}`} alt='type_image' />
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            </Popup>
+                            <input type="submit" onClick={() => {
+                                axios({
+                                    method: 'post',
+                                    url: 'http://localhost:4000/adminpattern/delete',
+                                    data: {
+                                        name: item.name,
+                                        length: item.length
+                                    }
+                                })
+                                    .then(response => {
+                                        window.location.reload();
+                                    })
+                                    .catch((error) => {
+                                        alert("Error: " + error.response.data.message);
+                                    })
+                            }} name="delete" value="Delete" />
+                        </div>
+                    </div>
+                ))}
             </div>
-
-            <div style={{ flex: '1' }}>
-              <label style={{ display: 'block', marginBottom: '10px' }}>
-                Image:
-                <div style={{ border: '2px dashed #ccc', padding: '10px', textAlign: 'center' }}>
-                  <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
-                  <p style={{ cursor: 'pointer' }} onClick={() => document.querySelector('input[type="file"]').click()}>Drag & Drop or Click to Upload</p>
-                </div>
-              </label>
-            </div>
-
-            <button type="submit" style={{ color: 'black', alignSelf: 'center' }}>
-              Add Design
-            </button>
-          </form>
-        ) : (
-          <button style={{ color: 'black' }} onClick={() => setShowTileForm(true)}>Add New Design</button>
-        )}
-        {showTileForm && (
-          <button style={{ color: 'black' }} onClick={() => setShowTileForm(false)}>Close</button>
-        )}
-      </div>
-    );
-  };
-
-  const handleAddTile = (newTile) => {
-    setTiles([...tiles, newTile]);
-  };
-
-  const handleExpandTile = (id) => {
-    // Implement expand logic if needed
-  };
-
-  const handleDeleteTile = (id) => {
-    const updatedTiles = tiles.filter((_, index) => index !== id);
-    setTiles(updatedTiles);
-  };
-
-  return (
-    <div className="admin-page">
-      <TileForm onAddTile={handleAddTile} />
-      <div className="tile-container">
-        {tiles.map((tile, index) => (
-          <Tile
-            key={index}
-            id={index}
-            title={tile.title}
-            image={tile.image}
-            length={tile.length}
-            onExpand={handleExpandTile}
-            onDelete={handleDeleteTile}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default AdminPage;
+        </>
+    )
+}

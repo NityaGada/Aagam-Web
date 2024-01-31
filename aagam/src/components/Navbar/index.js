@@ -35,22 +35,25 @@ export default function Navbar(props) {
       >
         <ul>
           <li>
-          <button
-            onClick={() => {
+            <button onClick={() => {
               navigate("/customize/Nawabi", {
                 state: {
-                  image1: NawabiModel,
-                  image2: "",
-                  ogimage: NawabiModel,
-                  handsface: bodypart,
+                  main_type_name: "Nawabi"
                 },
               });
-            }}
-          >
-           Nawabi
-          </button>
+            }}>
+              View Nawabi
+            </button>
           </li>
-          <li>Jodpuri</li>
+          <li><button onClick={() => {
+        navigate("/customize/Jodpuri", {
+          state: {
+            main_type_name: "Jodpuri"
+          },
+        });
+      }}>
+        View Jodpuri
+      </button></li>
           <li>Kurta</li>
           <li>Nehru Jacket</li>
           <li>Shirt</li>
@@ -60,15 +63,15 @@ export default function Navbar(props) {
         <img src={Nav} alt="nav" width={"33%"}></img>
       </div>
       <div className="actions">
-      <Link to="/login">
-        <button
-          className="account"
-          style={{ backgroundColor: "transparent", border: "none" }}
-        >
-          <img src={User} alt="User" />
-          <p>Account</p>
-        </button>
-      </Link>
+        <Link to="/login">
+          <button
+            className="account"
+            style={{ backgroundColor: "transparent", border: "none" }}
+          >
+            <img src={User} alt="User" />
+            <p>Account</p>
+          </button>
+        </Link>
       </div>
     </div>
   );

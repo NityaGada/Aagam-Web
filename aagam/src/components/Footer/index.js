@@ -12,7 +12,7 @@ export default function Footer(props) {
     <div style={{ backgroundColor: "black", color: "white", padding: "20px", fontSize: 20 }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src={logo} alt="logo" style={{ marginRight: 10, width:"50%" }} />
+          <img src={logo} alt="logo" style={{ marginRight: 10, width:"50%", filter: 'brightness(0) invert(1)' }} />
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="address" style={{ marginRight: "20px", color:"white" }}>

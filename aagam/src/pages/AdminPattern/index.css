@@ -1,5 +1,5 @@
 /* AdminPage.css */
-.admin-page {
+/* .admin-page {
     max-width: 800px;
     margin: 0 auto;
   }
@@ -53,6 +53,87 @@
     border: 1px solid #000;
     padding: 8px;
     cursor: pointer;
+} */
+
+.adminpatternbox {
+    display: flex;
+    flex-flow: column;
+    width: 20%;
+    border: 1px solid black;
+    margin: 1.5%;
+    box-sizing: border-box;
+    min-height: 350px;
+    padding: 1.5%;
+    font-size: 1.2em;
+    gap: 1.5%
 }
 
-  
+.patternimage {
+    display: flex;
+    flex: 3 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.patternimage img {
+    width: 100%;
+}
+
+.patternformdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.patternformdiv input {
+    width: 100%;
+    margin: 2.5% 5%;
+    font-size: 1.3em;
+}
+
+.patternformdiv input[type='file'] {
+    font-size: 1em;
+    width: 50%;
+}
+
+.patternformdiv label {
+    width: 100%;
+    margin: 1% 2.5%;
+}
+
+.patternoptions button,
+.patternoptions input[type="submit"] {
+    font-size: 1em;
+    width: 5em;
+    cursor: pointer;
+}
+
+.expandedmodal {
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+.expandedmodal .expandedmodalbuttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.expandedmodal .expandedmodalbuttons button {
+    font-size: 1.2em;
+    width: 10%;
+    cursor: pointer;
+    margin: 1%;
+    background-color: #fff;
+}
+
+.expandedmodal .expandedimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expandedmodal .expandedimage img {
+    /* display: flex; */
+    height: 600px;
+    margin-bottom: 1%;
+}

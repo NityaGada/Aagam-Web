@@ -88,6 +88,10 @@
   line-height: normal;
 }
 
+.brand img {
+  filter: invert(35%) sepia(86%) saturate(140%) hue-rotate(75deg) brightness(94%) contrast(95%);
+}
+
 .actions .account img{
   width: 50px;
 }
