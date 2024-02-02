@@ -46,8 +46,10 @@
 //     );
 // }
 
+
 import "./index.css";
 
+import { useSearchParams } from "react-router-dom";
 // import axios from 'axios';
 
 // import { useState, useEffect } from 'react';
@@ -56,6 +58,8 @@ import "./index.css";
 export default function Subtypes(props) {
     const subtypes = props.items_list;
     console.log(subtypes);
+    const [search_params, setsearch_params] = useSearchParams();
+    
     // const { title } = useParams();
     // const navigate = useNavigate();
     // const [recieveddata, setrecieveddata] = useState([]); 
@@ -76,7 +80,12 @@ export default function Subtypes(props) {
             {subtypes.map((subtype, index) => (
                 <button
                     key={index} className="subtype-box"
-                    onClick={() => {props.on_subtypes_select(index)}}
+                    onClick={() => {
+                        const path = subtype.subtype_name;
+                        search_params.set('sub_type_name', path);
+                        setsearch_params(search_params);
+                    }}
+                    // onClick={() => {props.on_subtypes_select(index)}}
                     // onClick={() => {
                     //     const path = mainTitle !== subtype.subtype_name
                     //         ? `${mainTitle}+${subtype.subtype_name}`

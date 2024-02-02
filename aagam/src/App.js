@@ -13,8 +13,8 @@ function App() {
         <components.Navbar />
         <Routes>
           <Route path="/" element={<pages.Home />}></Route>
-          {/* <Route path="/customize/:type_name" element={<pages.Customize />}></Route> */}
-          <Route path="/customize/:type_name/:pattern?" element={<pages.Customize />}></Route>
+          <Route path="/customize/:type_name" element={<pages.Customize />}></Route>
+          {/* <Route path="/customize/:type_name/:pattern?" element={<pages.Customize />}></Route> */}
           <Route path="/admin" element={<pages.Admin />}></Route>
           <Route path="/adminpattern" element={<pages.AdminPattern />}></Route>
           <Route path="/login" element={<pages.Login />}></Route>

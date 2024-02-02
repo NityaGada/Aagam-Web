@@ -34,6 +34,7 @@
 
 import "./index.css";
 
+import { useSearchParams } from 'react-router-dom';
 // import { ThemeItems } from "../MenuItems";
 
 // import { useNavigate, useParams } from 'react-router-dom';
@@ -42,12 +43,19 @@ export default function Theme(props) {
     // const { title} = useParams();
     // const navigate = useNavigate();
     const patterns = props.items_list;
+    const [search_params, setsearch_params] = useSearchParams();
+
     return (
         <div className="theme-container">
             {patterns.map((pattern, index) => (
                 <button
                     key={index} className="theme-box"
-                    onClick={() => {props.on_patterns_select(index)}}
+                    onClick={() => {
+                        const path = pattern.name;
+                        search_params.set('pattern', path);
+                        setsearch_params(search_params);
+                    }}
+                    // onClick={() => {props.on_patterns_select(index)}}
                     // onClick={() => {
                     //     navigate(`/customize/${title}/${pattern.name}`, {
                     //         state: {
