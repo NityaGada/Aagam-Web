@@ -16,12 +16,13 @@ export default function Footer(props) {
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="address" style={{ marginRight: "20px", color:"white" }}>
-            Shop Number 7, <br />
-            Borivali Shopping Centre, <br />
-            Chandavarkar Rd, Shanti Nagar
+             Ist 'C' Road, <br></br>
+             Near Azad Hind College,<br></br>
+             Sardarpura, <br></br>
+             Jodhpur - 342 003
           </div>
           <div>
-            <img src={Contact} alt="phone" /> 987654332 / 9999333333 <br />
+            <img src={Contact} alt="phone" /> 291-2614333 / 9829668333 <br />
             <div style={{ display: "flex" }}>
               <img src={wa} alt="wa" style={{ width: "20%", marginRight: "10px" }} />
               <img src={insta} alt="insta" style={{ width: "20%", marginRight: "10px" }} />

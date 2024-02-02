@@ -69,7 +69,7 @@ export default function Home() {
       <div className="location">
         <h2 style={{ paddingBottom: "5%" }}>WE ARE HERE</h2>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.1716914341905!2d72.85259617500695!3d19.231347747077677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d69f6e65d9%3A0x3b064a42def0a235!2sAagam%20ethnic!5e0!3m2!1sen!2sin!4v1698839107689!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.5025825910084!2d73.01175476380324!3d26.277802588314376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418c36fc45fd23%3A0xa1a66a4a32a91660!2sAagam%20(%20Saleraj%20Chandanmal%20Jain%20)!5e0!3m2!1sen!2sin!4v1706011994120!5m2!1sen!2sin" 
           width="100%"
           height="450"
           title="map"
@@ -80,17 +80,18 @@ export default function Home() {
         />
         <div className="content">
           <div className="address">
-            Shop Number 7, <br></br>
-            Borivali Shopping Centre, <br></br>
-            Chandavarkar Rd, Shanti Nagar
+             Ist 'C' Road, <br></br>
+             Near Azad Hind College,<br></br>
+             Sardarpura, <br></br>
+             Jodhpur - 342 003
           </div>
           <div className="contacts">
-            <img src={Contact} alt="phone" /> 987654332 / 9999333333 <br></br>
+            <img src={Contact} alt="phone" /> 291-2614333 / 9829668333 <br></br>
             <div style={{ width: "100%" }}>
-              <img src={wa} alt="wa" style={{ width: "20%" }} />
-              <img src={insta} alt="insta" style={{ width: "20%" }} />
-              <img src={gmail} alt="gmail" style={{ width: "20%" }} />
-              <img src={fb} alt="fb" style={{ width: "20%" }} />
+              <a href="https://g.page/r/CWAWqTJKaqahEBM/" target="_blank" rel="noopener noreferrer"><img src={wa} alt="wa" style={{ width: "20%" }} /></a>
+              <a href="https://www.facebook.com/Aagampage/" target="_blank" rel="noopener noreferrer"><img src={insta} alt="insta" style={{ width: "20%" }} /></a>
+              <a href={`mailto:${'aagamsaleraj@gmail.com'}`}><img src={gmail} alt="gmail" style={{ width: "20%" }} /></a>
+              <a href="https://www.instagram.com/aagamjodhpur/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="fb" style={{ width: "20%" }} /></a>
             </div>
           </div>
         </div>
