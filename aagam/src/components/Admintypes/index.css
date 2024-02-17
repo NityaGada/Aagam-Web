@@ -2,10 +2,12 @@
     display: flex;
     flex-flow: column;
     width: 42.5%;
-    border: 1px solid black;
+    border: 1px solid #4F6F52;
+    border-radius: 20px;
     margin: 2.5%;
     box-sizing: border-box;
     min-height: 350px;
+    padding: 1em;
 }
 
 .type {
@@ -14,10 +16,15 @@
     flex-flow: column;
     justify-content: center;
     gap: 1.5em;
+    margin-left: 1em;
 }
 
 .type button {
     font-size: 1.5em;
+    border: 1px solid #ECE3CE;
+    background-color: #ECE3CE;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .typeimage {
@@ -36,6 +43,9 @@
     font-size: 1.2em;
     width: 5em;
     cursor: pointer;
+    border: 1px solid #ECE3CE;
+    background-color: #ECE3CE;
+    border-radius: 10px;
 }
 
 .modal {

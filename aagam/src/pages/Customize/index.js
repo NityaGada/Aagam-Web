@@ -77,7 +77,7 @@ export default function Customize() {
         .catch((error) => {
             console.log('Error: ', error);
         });
-    });
+    }, [type_name]);
     // console.log("--->", recieveddata);
     // const main_image = recieveddata.main_image;
     // // const pattern_image = state.pattern_image;
@@ -99,21 +99,22 @@ export default function Customize() {
     // const pattern_image = selected_pattern_idx === -1 ? '' : reqiured_data.current.patterns[selected_pattern_idx].pattern_image;
     const main_image = !sub_type_name ? reqiured_data.current.main_image : reqiured_data.current.subtypes.find(s => s.subtype_name === sub_type_name).subtype_image;
     const handsandface_image = !sub_type_name ? reqiured_data.current.handsandface_image : reqiured_data.current.subtypes.find(s => s.subtype_name === sub_type_name).subtype_handsandface_image;
-    const pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).pattern_image;
+    const pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).patterns_image;
+    // const modified_pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).modified_pattern_image;
     
     return <>
         {/* <img src = {`data:image/png;base64,${main_image}`} />
         <img src = {`data:image/png;base64,${handsandface_image}`} />
-        <img src = {`data:image/png;base64,${pattern_image}`} /> */}
+        <img src = {`data:image/png;base64,${pattern_image}`} > */}
         <div style={{ width: '100%', display: 'flex', marginTop: 1 + 'em' }}>
             <div style={{ flex: 4 }}>
                 <Main img1={main_image} img2={pattern_image} ogimage={main_image} handsface={handsandface_image} />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: 1 + 'em' }}>
-                <Subtypes items_list = {reqiured_data.current.subtypes} />
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 2, marginRight: 2 + 'em', height: 500 + 'px', overflowY: 'auto' }}>
+                <Subtypes first_image = {reqiured_data.current.main_image} items_list = {reqiured_data.current.subtypes} name = {type_name} />
             </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '1em 0' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '1em auto', width: 97.5 + '%', borderRadius: 20 + 'px', backgroundColor: '#ece3ce', maxHeight: 450 + 'px', overflowY: 'auto' }}>
             <Theme items_list = {reqiured_data.current.patterns} />
         </div>
     </>

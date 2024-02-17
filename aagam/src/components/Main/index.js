@@ -28,30 +28,31 @@ export default function Main(props) {
 
                 // draw model image (shirt) on top
                 // Calculate the x-coordinate to center the image
-            const x = (canvas.width - img1.width * 0.5) / 2;
+                const x = (canvas.width - img1.width * 0.5) / 2;
 
-            // draw model image (shirt) centered horizontally
-            ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
+                // draw model image (shirt) centered horizontally
+                ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
 
-            // change composition mode
-            ctx.globalCompositeOperation = "destination-in";
+                // change composition mode
+                ctx.globalCompositeOperation = "destination-in";
 
-            // draw to cut out model image (shirt)
-            ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
+                // draw to cut out model image (shirt)
+                ctx.drawImage(img1, x, 0, img1.width * 0.5, img1.height * 0.5);
 
-            // Reset composition mode to default
-            ctx.globalCompositeOperation = "source-over";
+                // Reset composition mode to default
+                ctx.globalCompositeOperation = "source-over";
 
-            // draw the new image on top
-            ctx.drawImage(img3, x + 3, 2, img3.width * 0.5, img3.height * 0.5); // Adjust position and size as needed
-        };
+                // draw the new image on top
+                ctx.drawImage(img3, x + 3, 2, img3.width * 0.5, img3.height * 0.5); // Adjust position and size as needed
+            };        
 
-        img1.onload = img2.onload = img3.onload = function () {
-            if (!--cnt) go();
-        };
+            img1.onload = img2.onload = img3.onload = function () {
+                if (!--cnt) go();
+            };
 
             img1.src = `data:image/png;base64,${props.img1}`; // Shirt
             img2.src = `data:image/png;base64,${props.img2}`; // Pattern
+            console.log(img2);
             img3.src = `data:image/png;base64,${props.handsface}`; // New image
         }
     }, [props.img1, props.img2, props.handsface]);

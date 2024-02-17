@@ -68,8 +68,8 @@ export default function Theme(props) {
                     //     });
                     // }}
                 >
-                    <img src={`data:image/png;base64,${pattern.pattern_image}`} alt={pattern.name} />
-                    <div style={{ color: 'black', textDecoration: 'none' }}>{pattern.name}</div>
+                    <img src={`data:image/png;base64,${pattern.patterns_image}`} alt={pattern.name} />
+                    <div style={{ color: 'black', textDecoration: 'none', fontSize: 1.5+'em' }}>{pattern.name}</div>
                 </button>
             ))}
         </div>

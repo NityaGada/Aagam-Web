@@ -77,6 +77,16 @@ export default function Subtypes(props) {
 
     return (
         <div className="subtype-container">
+            <button
+                    className="subtype-box"
+                    onClick={() => {
+                        search_params.delete('sub_type_name');
+                        setsearch_params(search_params);
+                    }}
+                >
+                    <img src={`data:image/png;base64,${props.first_image}`} alt={props.name} />
+                    <div style={{ color: 'black', textDecoration: 'none', fontSize: 1.5+'em' }}>{props.name}</div>
+                </button>
             {subtypes.map((subtype, index) => (
                 <button
                     key={index} className="subtype-box"

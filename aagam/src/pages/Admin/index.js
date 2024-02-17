@@ -42,7 +42,7 @@ export default function Admin() {
         <>
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 5 + '%' }}>
                 <Popup trigger=
-                    {<button style={{ fontSize: 1.2 + 'em', width: 15 + '%', cursor: 'pointer' }}> Add Cloth Type</button>}
+                    {<button style={{ fontSize: 1.2 + 'em', border: '1px solid #ECE3CE', backgroundColor: '#ECE3CE', borderRadius: 10 + 'px', width: 15 + '%', cursor: 'pointer' }}> Add Model </button>}
                     modal nested>
                     {
                         close => (
@@ -91,7 +91,7 @@ export default function Admin() {
                 </Popup>
                 <button onClick={() => {
                     navigate("/adminpattern")
-                }} style={{ fontSize: 1.2 + 'em', width: 15 + '%', cursor: 'pointer' }}> Patterns</button>
+                }} style={{ fontSize: 1.2 + 'em', border: '1px solid #ECE3CE', backgroundColor: '#ECE3CE', borderRadius: 10 + 'px', width: 15 + '%', cursor: 'pointer' }}> View Patterns </button>
             </div >
             <div style={{ display: 'flex', flexFlow: 'row', width: 100 + '%', flexWrap: 'wrap', gap: 2.5 + '%' }}>
                 {recieveddata.map((item, index) => (

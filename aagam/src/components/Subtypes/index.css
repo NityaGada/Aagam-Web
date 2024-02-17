@@ -14,7 +14,7 @@
 .subtype-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
-    gap: 8px;
+    gap: 16px;
 }
 
 .subtype-box {
@@ -22,10 +22,13 @@
     flex-direction: column;
     align-items: center;
     background: none;
-    border: 0.5px solid black;
+    border: 3px solid #ece3ce;
     cursor: pointer;
+    border-radius: 25px;
 }
 
 .subtype-box img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
 }

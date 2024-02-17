@@ -1,6 +1,5 @@
 import React from "react";
-import CopyRight from "../../assets/copyright.png";
-import Contact from "../../assets/contact.png"; // Import your contact icons here
+import Contact from "../../assets/contact2.png"; 
 import wa from "../../assets/whatsapp.png";
 import insta from "../../assets/insta.png";
 import gmail from "../../assets/gmail.png";
@@ -24,10 +23,10 @@ export default function Footer(props) {
           <div>
             <img src={Contact} alt="phone" /> 291-2614333 / 9829668333 <br />
             <div style={{ display: "flex" }}>
-              <img src={wa} alt="wa" style={{ width: "20%", marginRight: "10px" }} />
-              <img src={insta} alt="insta" style={{ width: "20%", marginRight: "10px" }} />
-              <img src={gmail} alt="gmail" style={{ width: "20%", marginRight: "10px" }} />
-              <img src={fb} alt="fb" style={{ width: "20%" }} />
+              <a href="https://g.page/r/CWAWqTJKaqahEBM/" target="_blank" rel="noopener noreferrer"><img src={wa} alt="wa" style={{marginRight: "10px" }} /></a>
+              <a href="https://www.facebook.com/Aagampage/" target="_blank" rel="noopener noreferrer"><img src={insta} alt="insta" style={{ marginRight: "10px" }} /></a>
+              <a href={`mailto:${'aagamsaleraj@gmail.com'}`}><img src={gmail} alt="gmail" style={{marginRight: "10px" }} /></a>
+              <a href="https://www.instagram.com/aagamjodhpur/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="fb" style={{}} /></a>
             </div>
           </div>
         </div>

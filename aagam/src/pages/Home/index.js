@@ -23,7 +23,7 @@ export default function Home() {
       }}>
         View Nawabi
       </button>
-      <div className="content">
+      <div className="content-top">
       <Helmet>
       <meta name="keywords" content="Jodhpuri Near Me, Wedding Store Near Me, Menswear Store, Jodhpuri Suit Store, Jodhpuri Coat Store, Mens Wedding Wear Store, Ethnic Shoes, Wedding Shoes, Handmade Shoes, Designer Shoes, Handcrafted Shoes, Suiting, Shirting, Traditional Wear, Kurta, Designer Kurta, Bandhgala, Achkan, Tie, Bowtie, Cufflinks, Lapel Pin, Broach, Readymade Wedding Wear Clothes, Ethnic Clothes" />
       </Helmet>
@@ -78,7 +78,7 @@ export default function Home() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <div className="content">
+        <div className="content-bottom">
           <div className="address">
              Ist 'C' Road, <br></br>
              Near Azad Hind College,<br></br>
@@ -86,12 +86,15 @@ export default function Home() {
              Jodhpur - 342 003
           </div>
           <div className="contacts">
-            <img src={Contact} alt="phone" /> 291-2614333 / 9829668333 <br></br>
-            <div style={{ width: "100%" }}>
-              <a href="https://g.page/r/CWAWqTJKaqahEBM/" target="_blank" rel="noopener noreferrer"><img src={wa} alt="wa" style={{ width: "20%" }} /></a>
-              <a href="https://www.facebook.com/Aagampage/" target="_blank" rel="noopener noreferrer"><img src={insta} alt="insta" style={{ width: "20%" }} /></a>
-              <a href={`mailto:${'aagamsaleraj@gmail.com'}`}><img src={gmail} alt="gmail" style={{ width: "20%" }} /></a>
-              <a href="https://www.instagram.com/aagamjodhpur/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="fb" style={{ width: "20%" }} /></a>
+            <div style={{display: "flex", flexDirection: "row", }}>
+              <img src={Contact} alt="phone" /> 
+              <div style={{fontSize: "0.9em"}}>291-2614333 / 9829668333 </div> 
+            </div>
+            <div style={{ width: "100%", paddingTop:"2%" }}>
+              <a href="https://g.page/r/CWAWqTJKaqahEBM/" target="_blank" rel="noopener noreferrer"><img src={wa} alt="wa" style={{ width: "50px", height: "50px", marginRight:"30px" }} /></a>
+              <a href="https://www.facebook.com/Aagampage/" target="_blank" rel="noopener noreferrer"><img src={insta} alt="insta" style={{ width: "50px", height: "50px",marginRight:"30px" }} /></a>
+              <a href={`mailto:${'aagamsaleraj@gmail.com'}`}><img src={gmail} alt="gmail" style={{ width: "50px", height: "50px", marginRight:"30px" }} /></a>
+              <a href="https://www.instagram.com/aagamjodhpur/" target="_blank" rel="noopener noreferrer"><img src={fb} alt="fb" style={{ width: "50px", height: "50px" }} /></a>
             </div>
           </div>
         </div>

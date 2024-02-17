@@ -61,7 +61,7 @@ export default function Admintypes(props) {
                     />
                 </div>
             </div>
-            <div className="options" style={{ display: 'flex', justifyContent: 'flex-end', gap: '1.5em' }}>
+            <div className="options" style={{ display: 'flex', justifyContent: 'flex-end', gap: '1.5em', marginTop: '1em', marginRight: '1em' }}>
                 <Popup trigger=
                     {<button>Add</button>}
                     modal nested>

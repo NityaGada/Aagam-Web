@@ -57,15 +57,14 @@
 
 .adminpatternbox {
     display: flex;
-    flex-flow: column;
-    width: 20%;
-    border: 1px solid black;
-    margin: 1.5%;
-    box-sizing: border-box;
-    min-height: 350px;
-    padding: 1.5%;
-    font-size: 1.2em;
-    gap: 1.5%
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: 2px solid #4F6F52;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 0.5em;
+    padding: 0.5em;
 }
 
 .patternimage {
@@ -76,36 +75,52 @@
 }
 
 .patternimage img {
-    width: 100%;
+    width: 150px;
+    height: 200px;
+    object-fit: contain;
 }
 
 .patternformdiv {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 0.5em 0;
 }
 
 .patternformdiv input {
-    width: 100%;
-    margin: 2.5% 5%;
+    width: 30%;
+    /* margin: 2.5% 5%; */
     font-size: 1.3em;
+    border-radius: 8px;
 }
 
 .patternformdiv input[type='file'] {
     font-size: 1em;
-    width: 50%;
+    /* width: 40%; */
+    border-radius: 0px;
 }
 
 .patternformdiv label {
-    width: 100%;
-    margin: 1% 2.5%;
+    width: 80%;
+    /* margin: 1% 2.5%; */
+}
+
+.patternformdiv input[type='submit'] {
+    width: 15%;
+    border: 1px solid #ECE3CE;
+    background-color: #ECE3CE;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .patternoptions button,
 .patternoptions input[type="submit"] {
-    font-size: 1em;
+    font-size: 1.2em;
     width: 5em;
     cursor: pointer;
+    border: 1.5px solid #4F6F52;
+    background-color: #ECE3CE;
+    border-radius: 10px;
 }
 
 .expandedmodal {
