@@ -31,6 +31,8 @@ import { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import { useParams, useSearchParams } from "react-router-dom";
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css';
 
 import Main from "../../components/Main";
 import Subtypes from "../../components/Subtypes";
@@ -51,6 +53,9 @@ export default function Customize() {
     // const [selected_subtype_idx, set_selected_subtype_idx] = useState(-1);
     // const [selected_pattern_idx, set_selected_pattern_idx] = useState(-1);
     const [ready, set_ready] = useState(false);
+    const [sliderValue, setSliderValue] = useState(10); // Initial value for slider
+    const [patternImageWidth, setPatternImageWidth] = useState(0); // Initial width for pattern image
+    const [modifiedPatternImage, setModifiedPatternImage] = useState(null);
 
     // function handle_subtypes_select(idx) {
     //     set_selected_subtype_idx(idx);
@@ -69,14 +74,14 @@ export default function Customize() {
                 mainTypeName: type_name,
             }
         })
-        .then(response => {
-            reqiured_data.current = response.data;
-            set_ready(true);
-            console.log("Response data: ", reqiured_data.current);
-        })
-        .catch((error) => {
-            console.log('Error: ', error);
-        });
+            .then(response => {
+                reqiured_data.current = response.data;
+                set_ready(true);
+                console.log("Response data: ", reqiured_data.current);
+            })
+            .catch((error) => {
+                console.log('Error: ', error);
+            });
     }, [type_name]);
     // console.log("--->", recieveddata);
     // const main_image = recieveddata.main_image;
@@ -88,7 +93,24 @@ export default function Customize() {
     //     return false
     // }
 
-
+    // useEffect(() => {
+    //     if (!pattern) return; // Return if pattern is not selected
+    //     const patternData = reqiured_data.current.patterns.find(p => p.name === pattern);
+    //     if (!patternData) return; // Return if pattern data is not found
+    //     const patternImage = new Image();
+    //     patternImage.src = patternData.patterns_image;
+    //     patternImage.onload = function() {
+    //         const aspect = patternImage.width / patternImage.height;
+    //         const calculatedWidth = Math.min(Math.max(sliderValue, 10), patternImage.width);
+    //         setPatternImageWidth(calculatedWidth);
+    //         const canvas = document.createElement('canvas');
+    //         const ctx = canvas.getContext('2d');
+    //         canvas.width = calculatedWidth;
+    //         canvas.height = calculatedWidth / aspect;
+    //         ctx.drawImage(patternImage, 0, 0, canvas.width, canvas.height);
+    //         setModifiedPatternImage(canvas.toDataURL());
+    //     };
+    // }, [pattern, sliderValue]);
 
     if (!ready) {
         return <h1>Loading</h1>
@@ -99,23 +121,27 @@ export default function Customize() {
     // const pattern_image = selected_pattern_idx === -1 ? '' : reqiured_data.current.patterns[selected_pattern_idx].pattern_image;
     const main_image = !sub_type_name ? reqiured_data.current.main_image : reqiured_data.current.subtypes.find(s => s.subtype_name === sub_type_name).subtype_image;
     const handsandface_image = !sub_type_name ? reqiured_data.current.handsandface_image : reqiured_data.current.subtypes.find(s => s.subtype_name === sub_type_name).subtype_handsandface_image;
-    const pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).patterns_image;
+    var pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).patterns_image;
     // const modified_pattern_image = !pattern ? '' : reqiured_data.current.patterns.find(p => p.name === pattern).modified_pattern_image;
     
+
     return <>
         {/* <img src = {`data:image/png;base64,${main_image}`} />
         <img src = {`data:image/png;base64,${handsandface_image}`} />
         <img src = {`data:image/png;base64,${pattern_image}`} > */}
         <div style={{ width: '100%', display: 'flex', marginTop: 1 + 'em' }}>
             <div style={{ flex: 4 }}>
-                <Main img1={main_image} img2={pattern_image} ogimage={main_image} handsface={handsandface_image} />
+            <Main img1={main_image} img2={pattern_image} ogimage={main_image} handsface={handsandface_image} />
+                    {pattern && (
+                        <InputRange maxValue={1000} minValue={10} value={sliderValue} onChange={setSliderValue} />
+                    )}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 2, marginRight: 2 + 'em', height: 500 + 'px', overflowY: 'auto' }}>
-                <Subtypes first_image = {reqiured_data.current.main_image} items_list = {reqiured_data.current.subtypes} name = {type_name} />
+                <Subtypes first_image={reqiured_data.current.main_image} items_list={reqiured_data.current.subtypes} name={type_name} />
             </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', margin: '1em auto', width: 97.5 + '%', borderRadius: 20 + 'px', backgroundColor: '#ece3ce', maxHeight: 450 + 'px', overflowY: 'auto' }}>
-            <Theme items_list = {reqiured_data.current.patterns} />
+            <Theme items_list={reqiured_data.current.patterns} />
         </div>
     </>
 }

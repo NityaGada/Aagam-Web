@@ -77,7 +77,7 @@ app.post('/customizer', (request, response) => {
                 patternsResults.rows.forEach(patternRow => {
                     const patternData = {
                         name: patternRow.name,
-                        pattern_image: patternRow.pattern_image.toString('base64')
+                        patterns_image: patternRow.pattern_image.toString('base64')
                     };
                     maintypeData.patterns.push(patternData);
                 });
@@ -88,35 +88,35 @@ app.post('/customizer', (request, response) => {
     });
 });
 
-    // const title = request.query.title;
-    // const selectStatement = 'SELECT subtype_name, subtypes_image FROM subtypes WHERE name = $1';
-    // const selectStatement2 = 'SELECT main_image FROM types WHERE name = $1';
-    // const values = [title];
+// const title = request.query.title;
+// const selectStatement = 'SELECT subtype_name, subtypes_image FROM subtypes WHERE name = $1';
+// const selectStatement2 = 'SELECT main_image FROM types WHERE name = $1';
+// const values = [title];
 
-    // pool.query(selectStatement, values, (sql_error, sql_results) => {
-    //     if (sql_error) {
-    //         throw sql_error;
-    //     }
+// pool.query(selectStatement, values, (sql_error, sql_results) => {
+//     if (sql_error) {
+//         throw sql_error;
+//     }
 
-    //     const subtypes = sql_results.rows.map(row => ({
-    //         name: row.subtype_name,
-    //         image: row.subtypes_image.toString('base64')
-    //     }));
+//     const subtypes = sql_results.rows.map(row => ({
+//         name: row.subtype_name,
+//         image: row.subtypes_image.toString('base64')
+//     }));
 
-    //     pool.query(selectStatement2, values, (sql_error2, sql_results2) => {
-    //         if (sql_error2) {
-    //             throw sql_error2;
-    //         }
+//     pool.query(selectStatement2, values, (sql_error2, sql_results2) => {
+//         if (sql_error2) {
+//             throw sql_error2;
+//         }
 
-    //         const mainImage = sql_results2.rows.map(row => ({
-    //             name: title,
-    //             image: row.main_image.toString('base64')
-    //         }));
+//         const mainImage = sql_results2.rows.map(row => ({
+//             name: title,
+//             image: row.main_image.toString('base64')
+//         }));
 
-    //         const responseData = [...subtypes];
-    //         response.json(responseData);
-    //     });
-    // });
+//         const responseData = [...subtypes];
+//         response.json(responseData);
+//     });
+// });
 // });
 
 app.post('/admin', (request, response) => {
@@ -236,7 +236,7 @@ app.post('/adminpattern', (request, response) => {
         maintypesResults.rows.forEach(maintypeRow => {
             const maintypeData = {
                 name: maintypeRow.name,
-                pattern_image: maintypeRow.pattern_image.toString('base64'),
+                patterns_image: maintypeRow.pattern_image.toString('base64'),
                 length: maintypeRow.length
             };
             responseData.push(maintypeData);
@@ -248,14 +248,29 @@ app.post('/adminpattern', (request, response) => {
 });
 
 app.post('/adminpattern/add', (request, response) => {
+    console.log(request.body);
     const name = request.body["name"];
     const buffer_image = Buffer.from(request.body["pattern_image"], 'base64');
     const length = request.body["length"];
-    pool.query('INSERT INTO patterns (name, pattern_image, length) VALUES ($1, $2, $3)', [name, buffer_image, length], (error, results) => {
-        if (error) {
-            throw error;
-        }
-    })
+    
+    // const canvas = createCanvas(10, 10);
+    // const ctx = canvas.getContext('2d');
+    // loadImage(buffer_image).then(img => {
+    //     const aspect = img.width / img.height;
+    //     canvas.width = 10;
+    //     canvas.height = 10 / aspect;
+    //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //     const pixels = imageData.data;
+    //     const converted_image = Array.from(pixels);
+    //     const converted_buffer_image = Buffer.from(converted_image, 'base64');
+        
+        pool.query('INSERT INTO patterns (name, pattern_image, length) VALUES ($1, $2, $3)', [name, buffer_image, length], (error, results) => {
+            if (error) {
+                throw error;
+            }
+        })
+    // });
     response.status(200).send('Addition successful');
 });
 
