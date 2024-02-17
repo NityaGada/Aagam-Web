@@ -52,7 +52,6 @@ export default function Main(props) {
 
             img1.src = `data:image/png;base64,${props.img1}`; // Shirt
             img2.src = `data:image/png;base64,${props.img2}`; // Pattern
-            console.log(img2);
             img3.src = `data:image/png;base64,${props.handsface}`; // New image
         }
     }, [props.img1, props.img2, props.handsface]);
